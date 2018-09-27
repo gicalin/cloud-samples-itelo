@@ -1,0 +1,22 @@
+{
+	"welcomeFile": "test/flpSandbox.html",
+	"authenticationMethod": "none",
+	"routes": [
+		{
+			"source": "^/odata/v2/(.*)$",
+			"destination": "itelo-backend",
+			"authenticationType": "none"
+		},
+		{
+			"source": "^(/.*)$",
+			"target": "$1",
+			"service": "html5-apps-repo-rt",
+			"authenticationType": "none"
+		},
+		{
+			"source": "/appconfig",
+			"localDir": ".",
+			"authenticationType": "none"
+		}
+	]
+}

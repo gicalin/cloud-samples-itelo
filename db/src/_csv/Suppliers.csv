@@ -1,4 +1,4 @@
-"ID","NAME","EMAILADDRESS","FAXNUMBER","PHONENUMBER","CREATED_BYUSER","CREATED_AT","MODIFIED_BYUSER","MODIFIED_AT"
+"ID","NAME","EMAILADDRESS","FAXNUMBER","PHONENUMBER","CREATEDBY","CREATEDAT","MODIFIEDBY","MODIFIEDAT"
 "4691df68-1e06-41bd-83db-f9cfe85264db","SAP","supplier-do.not.reply@sap.com","0622734004","0622734567","fisher.richard@itelo.info","2001-03-27T14:12:10","peter.fuchs@itelo.info","2011-09-29T10:13:21"
 "f68bae4d-7edf-4903-a03e-ee7db1750bdd","Becker Berlin","supplier-dagmar.schulze@beckerberlin.de","3088004","3088530","jonathan.east@itelo.info","2001-03-07T16:12:14","clark.kent@itelo.info","2013-01-10T21:19:15"
 "2b8fc053-48c9-4405-969f-d78a272d95cf","DelBont Industries","supplier-maria.brown@delbont.com","3023352004","3023352668","james.field@itelo.info","2001-02-20T14:10:01","john.dash@itelo.info","2007-10-09T09:00:20"

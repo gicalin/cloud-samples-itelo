@@ -1,68 +1,110 @@
-_schema-version: "2.0.0"
+_schema-version: 2.0.0
 ID: cloud.samples.itelo
 version: 1.0.0
 
+parameters:
+  deploy_mode: html5-repo
+
 modules:
- - name: itelo-db
-   type: hdb
-   path: db
-   parameters:
-     memory: 256M
-     disk-quota: 256M
-     buildpack: https://github.com/cloudfoundry/nodejs-buildpack.git#v1.6.24   # temporary fix
-   requires:
-     - name: itelo-hdi-container
-     - name: itelo-logging
+  - name: itelo-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: itelo-hdi-container
+      - name: itelo-logging
 
- - name: itelo-java
-   type: java
-   path: srv
-   parameters:
-     memory: 512M
-     disk-quota: 256M
-   build-parameters:
-     requires:
-       - name: itelo-db
-         target-path: ""   # <-- build fails if the whole property is missing
-   provides:
-    - name: java
-      properties:
-         url: "${default-url}"
-   requires:
-    - name: itelo-hdi-container
-      properties:
-         JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
-            {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
-    - name: itelo-logging
+  - name: itelo-java
+    type: java
+    path: srv
+    parameters:
+      disk-quota: 256M
+      timeout: 180
+    build-parameters:
+      requires:
+        - name: itelo-db
+          target-path: '' # <-- build fails if the whole property is missing
+    provides:
+      - name: java
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: itelo-hdi-container
+        properties:
+          JBP_CONFIG_RESOURCE_CONFIGURATION: >-
+            [tomcat/webapps/ROOT/META-INF/context.xml:
+            {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]
+      - name: itelo-logging
 
- - name: itelo
-   type: html5
-   path: app
-   parameters:
-     memory: 256M
-     disk-quota: 256M
-   build-parameters:
-     builder: grunt
-     requires:
-       - name: itelo-java
-         target-path: ""   # <-- build fails if the whole property is missing
-   requires:
-    - name: java
-      group: destinations
-      properties:
-        name: itelo-backend
-        url: ~{url}
-        forwardAuthToken: true
-    - name: itelo-logging
- 
+  - name: itelo-catalog-ui
+    type: html5
+    path: ui-iteloCatalog
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: java
+        group: destinations
+        properties:
+          name: itelo-backend
+          url: '~{url}'
+      - name: itelo-logging
+    build-parameters:
+      builder: grunt
+      requires:
+        - name: itelo-java
+          target-path: '' # <-- build fails if the whole property is missing
+
+  - name: itelo-uideployer
+    type: com.sap.html5.application-content
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: itelo-apprepo-dt
+    build-parameters:
+      builder: grunt
+      type: com.sap.html5.application-content
+      requires:
+        - name: itelo-catalog-ui
+
+  - name: itelo
+    type: approuter.nodejs
+    path: approuter
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: java
+        group: destinations
+        properties:
+          name: itelo-backend
+          url: '~{url}'
+      - name: itelo-apprepo-rt
+      - name: itelo-logging
+
 resources:
- - name: itelo-hdi-container
-   properties:
-     hdi-container-name: ${service-name}
-   type: com.sap.xs.hdi-container
+  - name: itelo-hdi-container
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
 
- - name: itelo-logging
-   type: org.cloudfoundry.managed-service
-   parameters:
-     service: application-logs
-     service-plan: lite
+  - name: itelo-apprepo-rt
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+
+  - name: itelo-apprepo-dt
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+
+  - name: itelo-logging
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: application-logs
+      service-plan: lite

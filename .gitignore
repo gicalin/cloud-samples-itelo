@@ -1,9 +1,9 @@
 # project
-**/.che/
 **/node_modules/
 **/package-lock.json
 **/.npmrc
 **/*.log
+**/.project
 
 # root
 /.mta/
@@ -16,14 +16,13 @@ db/**/gen/
 srv/**/edmx/
 srv/.settings/
 srv/target/
-srv/.apt_generated/
+srv/.apt_generated*/
 srv/bin/
-srv/.project
 srv/.classpath
 srv/.factorypath
+srv/src/main/resources/connection.properties
 
 # app
-app/**/dist/
-app/**/Component-preload.js
-app/**/localService/*.xml
-app/site-entry/resources/
+ui-*/**/dist/
+ui-*/**/Component-preload.js
+ui-*/**/localService/*.xml

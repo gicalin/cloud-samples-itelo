@@ -4,13 +4,16 @@
 	<parent>
 		<groupId>com.sap.cloud.servicesdk.prov</groupId>
 		<artifactId>projects-parent-odatav2</artifactId>
-		<version>1.17.1</version>
+		<version>1.19.0</version>
 	</parent>
 	<artifactId>itelo-catalog</artifactId>
 	<groupId>com.sap.clouds</groupId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
-	<name>Java Gateway service for itelo</name>
+	<name>Java Gateway service for ITelO</name>
+	<properties>
+		<packageName>com.sap.clouds.catalog</packageName>
+	</properties>
 	<build>
 		<finalName>${project.artifactId}-${project.version}</finalName>
 		<plugins>
@@ -56,6 +59,9 @@
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>connection.properties</exclude>
+				</excludes>
 			</resource>
 		</resources>
 	</build>

@@ -1,0 +1,16 @@
+{
+	"welcomeFile": "/iteloCatalog/test/flpSandbox.html",
+	"authenticationMethod": "none",
+	"routes": [
+		{
+			"source": "^/odata/v2/(.*)$",
+			"destination": "itelo-backend",
+			"authenticationType": "none"
+		},
+		{
+			"source": "/appconfig",
+			"localDir": ".",
+			"authenticationType": "none"
+		}		
+	]
+}

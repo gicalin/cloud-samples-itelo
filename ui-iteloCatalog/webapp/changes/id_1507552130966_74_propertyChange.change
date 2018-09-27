@@ -1,0 +1,34 @@
+{
+	"fileName": "id_1507552130966_74_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "iteloCatalog.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "useExportToExcel",
+		"newValue": true
+	},
+	"selector": {
+		"id": "iteloCatalog::sap.suite.ui.generic.template.ListReport.view.ListReport::Products--listReport",
+		"type": "sap.ui.comp.smarttable.SmartTable",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/iteloCatalog/changes/",
+	"creation": "2017-12-21T12:28:57.859Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.50.7"
+	},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "1.0",
+		"from": "1.0"
+	}
+}

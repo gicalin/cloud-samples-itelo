@@ -40,8 +40,12 @@
 			<http-method-omission>POST</http-method-omission>
 			<http-method-omission>DELETE</http-method-omission>
 		</web-resource-collection>
-		<auth-constraint />
+		<auth-constraint/>
 	</security-constraint>
+	<context-param>
+		<param-name>package</param-name>
+		<param-value>${packageName}</param-value>
+	</context-param>
 	<listener>
 		<listener-class>com.sap.cloud.sdk.service.prov.v2.rt.core.web.ServletListener</listener-class>
 	</listener>

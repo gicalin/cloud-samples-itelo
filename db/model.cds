@@ -16,8 +16,8 @@ extend Products with {
 }
 
 entity Reviews: fnd.BusinessObject {
-	product: Association to Products @title: '{i18n>product}';
-	reviewer: Association to Reviewers @title: '{i18n>reviewer_XTIT}';
+	product: Association to Products not null @title: '{i18n>product}';
+	reviewer: Association to Reviewers not null @title: '{i18n>reviewer_XTIT}';
 	title: String(60) @title: '{i18n>reviewTitle}';
 	message: String(1024) @title: '{i18n>reviewText}';
 	rating: Decimal(4, 2) @title: '{i18n>rating}';

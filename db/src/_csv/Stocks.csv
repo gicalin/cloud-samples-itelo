@@ -1,4 +1,4 @@
-"ID","QUANTITY","AVAILABILITY_CODE","MINIMUMQUANTITY","CREATED_BYUSER","CREATED_AT","MODIFIED_BYUSER","MODIFIED_AT"
+"ID","QUANTITY","AVAILABILITY_CODE","MINIMUMQUANTITY","CREATEDBY","CREATEDAT","MODIFIEDBY","MODIFIEDAT"
 "0f839a4f-0e62-4433-8d85-92af0842562d","94","3","37","rudolf.platte@itelo.info","2001-03-26T05:15:01","anna.lerch@itelo.info","2014-12-30T04:07:23"
 "d4beccfc-4f6f-432b-bdcc-00908b34afc7","91","3","25","kimuray@itelo.info","2001-04-28T07:01:08","frank.brown@itelo.info","2016-01-27T10:20:19"
 "41b22e74-cb28-48e8-9a19-71a5b193fa8e","98","3","33","paul.burke@itelo.info","2001-11-26T14:20:10","franco.fall@itelo.info","2008-05-03T13:20:18"

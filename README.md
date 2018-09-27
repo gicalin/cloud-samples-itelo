@@ -40,15 +40,15 @@ To build and deploy your application or modify it and redeploy, use any of the f
 
 * Build and deploy the Java service by choosing *Run -> Run as -> Java application* from the context menu of the srv folder. To test the service, click the URL displayed in the Run Console. Use the endpoint of the service *clouds.products.CatalogService* to call $metadata or CRUD requests.
 
-* Test the UI by choosing *Run -> Run as -> SAP Fiori Launchpad Sandbox* from the context menu of the app folder. Click on the app tile to launch the application.
+* Test the UIs by choosing *Run -> Run as -> SAP Fiori Launchpad Sandbox* from the context menu of the ui-iteloCatalog folder. Click on the app tile to launch the application.
 
 ## Known Issues
 
 * The read only field _Availability_ is enabled occasionally when creating a new Product.
 
-* Requesting reviews on the product object page causes a CDSRuntimeException.INTERNAL_ERROR when using SAP HANA 2.0 SPS 0.
-
-* When running the module "srv" as Java Application the log shows "CfDeployException: Failed to deploy application". In the file "mta.yaml", change all occurrences of "itelo-java" to "srv". Repeat build and run.
+* Non-Draft issues:
+  * The read only field _Availability_ is enabled occasionally when creating a new Product.
+  * "Save" can be clicked despite _not null_ fields containing empty values in edit mode but no backend request is sent.
 
 ## Support
 
