@@ -4,11 +4,11 @@
 	<parent>
 		<groupId>com.sap.cloud.servicesdk.prov</groupId>
 		<artifactId>projects-parent-odatav2</artifactId>
-		<version>1.19.0</version>
+		<version>1.21.1</version>
 	</parent>
 	<artifactId>itelo-catalog</artifactId>
 	<groupId>com.sap.clouds</groupId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<packaging>war</packaging>
 	<name>Java Gateway service for ITelO</name>
 	<properties>
